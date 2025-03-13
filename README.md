@@ -1,8 +1,7 @@
 # Projeto Twig 2025 
 Este é um projeto super especial desenvolvido na disciplina **Programação Web 3** no IFRS BG.
 
-Rode ao instalar:
-		    `composer install`
+Rode  `composer install` ao instalar !
 
 
 
