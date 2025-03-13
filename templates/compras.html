@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+
+{% block conteudo %}
+<h1>Página de {{ titulo }}</h1>
+
+{{ items|join(', ') }}
+
+<ul id="items">
+    {% for item in items %}
+    <li>{{ item }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
+
