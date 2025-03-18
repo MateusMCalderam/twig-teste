@@ -1,15 +1,25 @@
-{% extends "_base.html" %}
+{% extends '_base.html' %}
 
 {% block conteudo %}
-<h1>Página de {{ titulo }}</h1>
+  <h1>Página de {{ titulo }}</h1>
 
-{{ items|join(', ') }}
+  {{ items|join(', ') }}
 
-<ul id="items">
-    {% for item in items %}
-    <li>{{ item }}</li>
-    {% endfor %}
-</ul>
-
+  <table id="items" border="1">
+   {# <thead>
+      <tr>
+        {% for key, value in dados[0].items() %}
+          <th>{{ key }}</th>
+        {% endfor %}
+      </tr>
+    </thead> #}
+    <tbody>
+      {% for item in dados %}
+        <tr>
+          <td>{{ item.id }}</td>
+          <td>{{ item.item }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock %}
-
