@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block conteudo %}
+  <h1>Página de {{ titulo }}</h1>
+
+
+<h3>Editar Item</h3>
+
+
+      {% for item2 in item[0] %}
+
+            <p>{{ item2 }}</p>
+      {% endfor %}
+
+<form action="compras_edt.php" method="POST">
+    <input type="hidden" name="id" value="{{ item.id  ?? null }}">
+    <input type="text" name="item" placeholder="Escreva o nome do item:" value="{{ item.item  ?? "" }}">
+    <input type="submit" value="Editar">
+</form>
+
+{% endblock %}

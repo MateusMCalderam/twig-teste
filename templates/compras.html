@@ -3,23 +3,40 @@
 {% block conteudo %}
   <h1>Página de {{ titulo }}</h1>
 
-  {{ items|join(', ') }}
 
+<h3>Adicionar Item</h3>
+<form action="compras_adc.php" method="POST">
+    <input type="text" name="item" placeholder="Escreva o nome do item:">
+    <input type="submit" value="Adicionar">
+</form>
+
+
+
+  <h3>Minha Lista de Compras</h3>
+
+
+{% if dados|length > 0 %}
   <table id="items" border="1">
-   {# <thead>
+   <thead>
       <tr>
-        {% for key, value in dados[0].items() %}
-          <th>{{ key }}</th>
-        {% endfor %}
+        <th>ID</th>
+        <th>Item</th>
+        <th>Ação</th>
       </tr>
-    </thead> #}
+    </thead>
     <tbody>
       {% for item in dados %}
         <tr>
           <td>{{ item.id }}</td>
           <td>{{ item.item }}</td>
+          <td><a href='compras_rmv.php?id={{ item.id }}'>Apagar Item</a></td>
+          <td><a href='compra.php?id={{ item.id }}'>Editar Item</a></td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
+{% else %}
+   <p>Nenhum Item Adicionado</p>
+{% endif %}
+
 {% endblock %}
