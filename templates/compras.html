@@ -21,7 +21,7 @@
       <tr>
         <th>ID</th>
         <th>Item</th>
-        <th>Ação</th>
+        <th colspan="2">Ação</th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +29,8 @@
         <tr>
           <td>{{ item.id }}</td>
           <td>{{ item.item }}</td>
+          <td><a href='compras_edt.php?id={{ item.id }}'>Editar Item</a></td>
           <td><a href='compras_rmv.php?id={{ item.id }}'>Apagar Item</a></td>
-          <td><a href='compra.php?id={{ item.id }}'>Editar Item</a></td>
         </tr>
       {% endfor %}
     </tbody>
