@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+
+{% block conteudo %}
+  <h1>Página de {{ titulo }}</h1>
+
+
+<a href="compromissos_adc.php">Adicionar Compromisso</a>
+
+  <h3>Minha Lista de {{ titulo }}</h3>
+
+    <p>
+        Ordenar por:
+        <a href="compromissos.php?ordem=desc">Mais Recentes</a> |
+        <a href="compromissos.php?ordem=asc">Mais Antigos</a>
+    </p>
+
+    {% if dados|length > 0 %}
+    <table id="items" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Date</th>
+            <th>É final de semana? </th>
+            <th colspan="2">Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in dados %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.titulo }}</td>
+            <td>{{ item.date }}</td>
+            <td>{{ item.isWeekend ? 'Sim' : 'Não' }}</td>
+            <td><a href='compromissos_edt.php?id={{ item.id }}'>Editar Item</a></td>
+            <td><a href='compromissos_rmv.php?id={{ item.id }}'>Apagar Item</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Nenhum Item Adicionado</p>
+    {% endif %}
+
+{% endblock %}
