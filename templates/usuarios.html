@@ -1,0 +1,35 @@
+{% extends '_base.html' %}
+
+{% block conteudo %}
+  <h1>Página de {{ titulo }}</h1>
+
+
+<a href="usuarios_adc.php">Adicionar Usuário</a>
+
+  <h3>Lista de {{ titulo }}</h3>
+
+    {% if dados|length > 0 %}
+    <table id="items" border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th colspan="2">Ação</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in dados %}
+            <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.user }}</td>
+            <td><a href='usuarios_edt.php?id={{ item.id }}'>Editar Item</a></td>
+            <td><a href='usuarios_rmv.php?id={{ item.id }}'>Apagar Item</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Nenhum Item Adicionado</p>
+    {% endif %}
+
+{% endblock %}

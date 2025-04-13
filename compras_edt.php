@@ -3,6 +3,8 @@
 
 require_once('twig_carregar.php');
 require('inc/banco.php');
+
+require('verifica_login.php');
     
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $item = $_POST['item'] ?? null;

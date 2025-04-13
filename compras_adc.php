@@ -2,6 +2,8 @@
 
 require('inc/banco.php');
 
+require('verifica_login.php');
+
 $item = $_POST['item'] ?? null;
 
 if ($item) {

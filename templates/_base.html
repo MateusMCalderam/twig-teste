@@ -13,10 +13,25 @@
     <h2>{{ titulo }}</h2>
     {% endif %}
     <hr>
-    <a href="index.php">Inicial</a> |
-    <a href="compras.php">Compras</a> |
-    <a href="horario.php">Horário</a> |
-    <a href="compromissos.php">Compromissos</a> |
+    <div style="display: flex; justify-content: space-between;">
+        <span>
+            <a href="index.php">Inicial</a> |
+            <a href="horario.php">Horário</a> |
+        {% if session.usuario is defined %}
+            <a href="compras.php">Compras</a> |
+            <a href="compromissos.php">Compromissos</a> |
+            <a href="usuarios.php">Usuários</a> |
+            </span>
+
+            <span>
+                <span>Usuário: {{ session.usuario }} |</span>
+                <a href="logout.php">Logout</a>
+            </span>
+        {% else %}
+        </span>
+            <a href="login.php">Login</a>
+        {% endif %}
+    </div>
 
     <hr>
 

@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+
+{% block conteudo %}
+<h1>Página de Login</h1>
+
+<form action="login.php" method="POST">
+
+    {% if error is defined %}
+        <p style="color: red;">
+            {{ error }}
+        </p>
+    {% endif %}
+    
+    <input type="text" name="user" placeholder="Escreva o nome do usuário:">
+    <br>
+    <input type="password" name="password" placeholder="Escreva a sua senha:">
+    <br>
+    <input type="submit" value="Editar">
+</form>
+
+{% endblock %}

@@ -5,6 +5,8 @@ use Carbon\Carbon;
 require_once('twig_carregar.php');
 require('inc/banco.php');
 
+require('verifica_login.php');
+
 $ordem = $_GET['ordem'] ?? null;
 if (isset($ordem) && $ordem == 'desc') {
     $query = $pdo->query('SELECT * FROM compromissos ORDER BY id DESC');

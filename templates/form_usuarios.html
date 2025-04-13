@@ -1,0 +1,27 @@
+{% extends '_base.html' %}
+
+{% block conteudo %}
+  <h1>Página de {{ titulo }}</h1>
+
+
+<h3>Editar Usuário</h3>
+
+
+{% if user.id is defined %}
+  <form action="usuarios_edt.php" method="POST">
+{% else %}
+  <form action="usuarios_adc.php" method="POST">
+{% endif %}
+      <input type="hidden" name="id" value="{{ user.id  ?? null }}">
+      <input type="text" name="user" placeholder="Escreva o nome do usuário:" value="{{ user.user  ?? "" }}">
+      <br><br>
+      <input type="password" name="password" placeholder="Escreva a senha do usuário:">
+
+      {% if user.id is defined %}
+        <p>Para manter a senha atual, deixar em campo</p>
+      {% endif %}
+      <br>
+      <input type="submit" value="Salvar">
+  </form>
+
+{% endblock %}
