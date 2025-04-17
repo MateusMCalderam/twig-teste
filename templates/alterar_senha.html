@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block conteudo %}
+<h1>Página para Alterar Senha</h1>
+
+<form action="alterar_senha.php" method="POST">
+
+    {% if error is defined %}
+        <p style="color: red;">
+            {{ error }}
+        </p>
+    {% endif %}
+    
+    <input type="password" name="password" placeholder="Escreva a sua senha atual:">
+    <br>
+    <input type="password" name="new_password" placeholder="Escreva a sua nova senha:">
+    <br>
+    <input type="password" name="repeat_password" placeholder="Repita a sua nova senha:">
+    <br>
+    <input type="submit" value="Editar">
+</form>
+
+{% endblock %}

@@ -26,7 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         exit;
     }
 
-    $_SESSION['usuario'] = $_POST['user'];
+    $_SESSION['usuario'] = [
+        "user" => $_POST['user'],
+        "id" => $data['id']
+    ];
 
     header('location: compromissos.php');
 } else {

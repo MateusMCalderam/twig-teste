@@ -24,7 +24,8 @@
             </span>
 
             <span>
-                <span>Usuário: {{ session.usuario }} |</span>
+                <span>Usuário: {{ session.usuario.user }} |</span>
+                <a href="alterar_senha.php">Alterar Senha</a> |
                 <a href="logout.php">Logout</a>
             </span>
         {% else %}
